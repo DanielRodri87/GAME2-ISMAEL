@@ -1,0 +1,53 @@
+/* Zerar */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.player {
+    position: absolute;
+    width: 10%; /* Aumentei o tamanho dos players para 3% */
+}
+
+#play1 {
+    margin-top: 2.5%;
+    margin-left: 10%;
+}
+#play2 {
+    margin-top: 2.5%;
+    margin-left: 14%;
+}
+#play3 {
+    margin-top: 2.5%;
+    margin-left: 18%;
+}
+#play4 {
+    margin-top: 12%;
+    margin-left: 10%;
+}
+#play5 {
+    margin-top: 12%;
+    margin-left: 14%;
+}
+#play6 {
+    margin-top: 12%;
+    margin-left: 18%;
+}
+#play7 {
+    margin-top: 6.7%;
+    margin-left: 13%;
+}
+
+#tabuleiro {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    overflow: hidden; /* Removerá a barra de rolagem vertical */
+} 

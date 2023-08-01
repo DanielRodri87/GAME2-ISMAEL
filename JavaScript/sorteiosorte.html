@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content first-content">
+            <div class="first-column">
+                <h2 class="title title-primary">DESBRAVANDO O UNIVERSO</h2>
+                <p class="description description-primary">Não apenas de conhecimentos se vive, você depende de sua sorte!</p>
+            </div>
+            <div class="second-column">
+                <h2 class="title title-second">Preparado?</h2>
+                <p class="description description-second" id="title"></p>
+                <p id="curiosidade"></p>
+                <p id="casas"></p>
+            </div>
+        </div>
+        <div class="fechar">
+            <button id="fechar" class="btn btn-second">Fechar</button>
+        </div>
+    </div>
+</body>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background: #f5f5f5;
+        font-family: 'Open Sans', sans-serif;
+    }
+    p{
+        /* espaçar entre as bordas */
+        padding: 0 20px;
+    }
+
+    #cronometro{
+        border-radius: 50%;
+        padding: 5px;
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+        color: #fff;
+        background-color: #fb0808;
+        border: 1px solid #fff;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .fechar{
+        position: absolute;
+        margin-top: 40%;
+        left: 10px;
+        width: 100%;
+        text-align: center;
+
+    }
+
+    #casas{
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 80px;
+        color: #7f8c8d;
+        font-size: 15px;
+    }
+    #title{
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #ecf0f1;
+        text-align: justify;
+    }
+    .content {
+        background-color: #fff;
+        border-radius: 15px;
+        width: 960px;
+        height: 50%;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    .content::before {
+        content: "";
+        position: absolute;
+        background-color: #010D48;
+        width: 40%;
+        height: 100%;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+
+
+        left: 0;
+    }
+    .title {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: capitalize;
+    }
+    .title-primary {
+        color: #fff;
+    }
+    .title-second {
+        color: #010D48;
+    }
+    .description {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 30px;
+    }
+    .description-primary {
+        color: #fff;
+    }
+    .description-second {
+        color: #7f8c8d;
+    }
+    .btn {
+        border-radius: 15px;
+        border-color: #010D48;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 10px;
+        padding: 10px 50px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 150px;
+        align-self: center;
+        margin-top: 1rem;
+    }
+    .btn-primary {
+        background-color: transparent;
+        border: 1px solid #fff;
+        transition: background-color .5s;
+    }
+    .btn-primary:hover {
+        background-color: #fff;
+        color: #010D48;
+    }
+    .btn-second {
+        background-color: #010D48;
+        border: 1px solid #010D48;
+        transition: background-color .5s;
+    }
+    .btn-second:hover {
+        background-color: #fff;
+        border: 1px solid #010D48;
+        color: #010D48;
+    }
+    .first-content {
+        display: flex;
+    }
+    .first-content .second-column {
+        z-index: 11;
+    }
+    .first-column {
+        text-align: center;
+        width: 40%;
+        z-index: 10;
+    }
+    .second-column {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .second-column .btn {
+        margin-top: 2rem;
+    }
+    .second-column .btn:hover {
+        background-color: #010D48;
+        border: 1px solid #010D48;
+        color: #fff;
+    }
+
+</style>
+<script>
+    // Curiosidade
+    var curio = [
+        "Muitos cientistas afirmam que os cometas se originaram de resíduos deixados pela condensação da nebulosa que formou o Sistema Solar.",
+        "A Lua é o único satélite natural do Sistema Solar.",
+        "Os primeiros planetas localizados fora do Sistema Solar foram descobertos em 1992.",
+        "A Terra é o terceiro planeta mais próximo do Sol.",
+        "A Lua é o único satélite natural do Sistema Solar.",
+        "Danos causados por cometas são raros, mas podem ser devastadores.",
+        "Satélites artificiais são usados para comunicação, navegação e observação.",
+        "Os anéis de Saturno são compostos por bilhões de fragmentos de gelo e rocha com dimensões que variam do tamanho de grãos de areia a pequena montanhas",
+        "A primeira pessoa a realmente ver e identificar os anéis de Saturno foi o astrônomo holandês Christiaan Huygens, em 1655, que acreditava que o planeta contava com um único anel sólido e plano ao seu redor.",
+        "O impacto de um cometa, de grandes proporções, poderia provocar danos catastróficos à Terra.",
+        "350 a.C - o matemático grego Eudoxo de Cnidos, elabora o primeiro mapa astronômico do mundo.",
+        "O maior meteorito encontrado em nosso planeta foi o Hoba. Com peso de 59 toneladas, ele foi achado em 1920, em Hoba West, na Namíbia (Sul da África). Segundo estudos, ele deve ter caído em nosso planeta a cerca de 80 mil anos",
+        "O cometa mais conhecido no mundo da Astronoia é o Halley, ele se aproxima do nosso planeta a cada 76 anos (última vez foi em 1986).",
+        "Se olharmos para o céu numa noite escura, vemos uma faixa de luz cortando o céu de horizonte a horizante. Esta faixa e todas as estrelas que vemos no céu fazem parte da galáxia em que vivemos, a Via Láctea.",
+        "Felizmente são poucos os meteoritos que atingem o solo de nosso planeta causando estragos. Recentemente, no ano de 2013, um meteorito atingiu vários prédios da Rússia causando diversos danos matériais.",
+        "Os meteoritos de pequeno porte (maioria) dificilmente atingem a superfície terrestre, pois se desintegram na atmosfera. Costumam deixar um rastro de fogo e fumaça no céu e são, muitas vezes, chamados popurlamente de estrelas cadentes.",
+        "O planeta Terra e todo sistema solar estão localizados dentro da galáxia chamada de Via Láctea. Nossa galáxia tem o formato de espiral achatada, possuindo cerca de 200 bilhões de estrelas. A Via Láctea possui um diâmetro aproximado de cem mil anos-luz.",
+        "Somente três galáxias podem ser vistas a olho nu do nosso planeta. São elas: Andrômeda. Pequena, Nuvem e Grande Nuvem.",
+        "Eratóstenes(276-194 a.C) - estudioso de astronomia da Grécia Antiga, foi o primeiro a fazer cálculos sobre a circunferência do planeta Terra. Foi também, filósofo, geógrafo e matemático.",
+        "As maiores luas do sistema solar são: Ganimedes(satélite natural de Júpiter). Titã (satélite natural de Saturno). Calisto (satélite natural de Júpiter) e IO (satélite natural de Júpiter)",
+        "A estrela mais próxima do sistema solar é Centaure, distante cerca 4,22 anos-luz. Ela esta localizada no sistema Alpha Centauri",
+        "Os primeiros planetas localizados fora do sistema solar foram descobertos em 1992",
+        "Muitos cientistas afirmam que os cometas se originaram de resíduos deixados pela condensação da nebulosa que formou o sistema solar",
+        "Maior meteorito que caiu no Brasil(com registro) foi o “pedra de bendegó''. Ele atingiu o sertão baiano no ano de 1784.",
+        "Em janeiro de 2005, cientistas descobriram Eris, que fica localizado além da órbita de plutão e tem aproximadamente o mesmo tamanho que esse planeta anão.",
+        "Na órbitas de marte e Júpiter, localizam-se grande parte dos asteroides que variam de tamanho, podendo ser até mesmo minúsculos.",
+        "A duas sondas espaciais Voyager da Nasa encontraram bolhas magnéticas na região do sistema solar conhecida como Heliosheath, que fica cerca de 14,5 bilhões de quilômetros da terra.",
+        "Em 2007, o telescópio espacial GALEX(Galaxy Evolution Explorer) escaneou a Mira A, uma estrela gigante vermelha, como parte de uma operação para escanear todo o céu em luz ultravioleta.",
+        "Kepler(1571-1630) - astrônomo e matemático alemão fez importantes estudos relacionados aos movimentos dos planetas e de suas órbitas ao redor do sol.",
+        "Sobre as Super Novas, somente depois dos cálculos dos modelos estelares a partir de 1939, foi possível compreender que na verdade não eram estrelas novas, e sim estrelas que explodiam quando acabava seu combustível nuclear.",
+        "O planeta Urano foi descoberto em 1781 pelo astrônomo inglê, william Herschell",
+        "Historiadores e paleontólogos acreditavam que foi a queda de um cometa em nosso planeta que ocasionou a extinção dos dinossauros na terra há milhões de anos",
+        "Copérnico(1473-1543) - astrônomo e matemṕatico polonês fez importantes estudos sobre os movimentos da terra(rotação e translação). Com esses estudos, desenvolveu a teoria do heliocentrismo(sol no centro do sistema solar).",
+        "Galileu Galilei(1564-1642) - fez várias descobertas astronômicas como, por exemplo, a existências das manchas solares, a existência de montanhas e cratera na superfície lunar e os anéis de saturno. foi também importante pois aperfeiçoou o telescópio refrator.",
+        "600 anos a.C. - o pesquisar grego Tales de Mileto calcula e consegue proibir a chegada de um eclipse",
+        "Io, uma das quatro grandes luas de Júpiter, é o local com maior atividade vulcânica de todo sistema solar. Os vulcões de Io são muito mais quentes do que o planeta Terra. Podendo chegar até 1600°C",
+        "Em julho de 2004, a sonda Cassini começou a orbitar saturno. Por causa das missõpes anteriores do Voyager, uma das prioridades da missão de Cassini era investigar a sexta maior lua do planeta chama de Enceladus",
+        "A maior galáxia descoberta pelos astrônomos até o momento é chamada de IC 1101. Ela possui um diâmetro aproximado de 5,5 milhões de anos luz.",
+        "750 a.C. - os egípcios começam a utilizar o movimento do sol para contar o tempo. surgem os primeiros relógios de sol.",        
+        "A estrela mais próxima do Sol é a Próxima de Centauro. É uma estrela anã vermelha pertencente ao sistema estelar Alfa de Centauro. A sua massa é de apenas 10% da massa do Sol e está a 4 anos-luz de distância. Se ela desaparecesse agora só daqui a 4 anos o saberíamos.",
+        "Em Netuno, sétimo planeta do Sistema Solar, nunca faríamos um ano de idade, pois este planeta leva precisamente 163 anos terrestres para completar o seu movimento de translação em volta do Sol",
+        "Titã é o único satélite natural no Sistema Solar que tem atmosfera própria. Este é o maior dos 18 satélites naturais de Saturno.",
+        "As constelações mais conhecidas no Brasil são a Cruzeiro do Sul e Órion. A constelação de Órion é, em parte, formada por 3 estrelas alinhadas, denominadas As Três Marias. Para os gregos antigos, elas representavam o Cinturão de Órion.",
+        "Planetas, constelações e galáxias formam apenas 4% do universo. O resto é feito de matéria escura, um tipo estranho de matéria sobre a qual os cientistas não sabem nada.",
+        "Anel de fogo no céu: O Eclipse Anular ocorre quando a Lua está mais distante do nosso planeta do que o usual, e alinhado entre a Terra e o Sol, — de maneira parcial ou total — causando a impressão de que o satélite natural diminuiu de tamanho na perspectiva do observador. Por isso, é possível ver raios solares que escapam pelas bordas, criando o efeito de um anel brilhante iluminando o contorno da Lua, popularmente conhecido como anel de fogo.",
+        "Júpiter é duas vezes maior do que todos os outros planetas, satélites, asteroides e cometas do Sistema Solar juntos.",
+        "O planeta do Sistema Solar com o maior número de luas é Júpiter, com 63. O segundo lugar fica com Saturno, com 34 luas.",
+        "Os lobos uivam para a lua cheia? A imagem de lobos uivando para a lua já faz parte do imaginário popular, mas na verdade, eles não fazem isso para o nosso satélite, apesar desses animais terem motivo para uivarem mais durante a lua cheia.",
+        "A maioria das galáxias surgiu um pouco depois da formação do universo. Os cientistas acreditam que elas tenham, em média, entre 10 e 13,6 bilhões de anos! A galáxia mais nova de que se tem notícia nasceu há cerca de 500 milhões de anos.",
+        "As estrelas são um dos corpos celestes que compõem as galáxias. A luz que vemos ao observá-las vem desses astros! Somente na Via Látea, acredita-se haver entre 200 e 250 bilhões de estrelas.",
+        "As galáxias estão em movimento, e algumas caminham em direção a outras, o que provavelmente levará a uma colisão. Isso deve ocorrer entre a Via Láctea e a Galáxia de Andrômeda daqui a 5 bilhões de anos!",
+        "Há galáxias em forma de espiral, como a Via Láctea, com braços que parecem um cata-vento. Há também as elípticas e as galáxias com formas irregulares!",
+        "Como a luz das estrelas demora para chegar até nós, é provável que muitas estrelas que vemos na Terra não existam mais.",
+        "Se fôssemos conduzir um carro a uma velocidade constante de 160 quilômetros por hora, levaríamos 220 milhões de anos para chegar no centro da Via Láctea",
+        "O elemento mais abundante no Universo é o hidrogênio (93%), seguido do hélio (cerca de 7%). O restante é constituído dos materiais que conhecemos como oxigênio, ferro, fósforo, carbono…",
+        "A maior estrela conhecida do Universo é a VY Canis Majoris, com porte 1.800 a 2.100 vezes maior que o nosso sol. Mas os astrônomos suspeitam que a UY Scuti seja ainda maior, o que precisa ser comprovado através de observações e cálculos.",
+        "Os astrônomos estimam em 275 milhões o número de estrelas que nascem por dia.",
+        "O maior vulcão do Sistema Solar é o Monte Olimpo, uma montanha marciana três vezes maior do que o nosso Monte Everest.",
+        "O céu da Terra é azul; o de Marte é cor de rosa; o de Vênus, amarelo-laranja; o de Urano, verde; e o de Júpiter, preto.",
+        "A Lua é o único satélite natural do Sistema Solar que tem água em estado líquido em sua superfície.",
+        
+
+    ];
+    
+    var cronometro = 6;
+    var cronometroId = setInterval(function(){
+        cronometro--;
+        document.getElementById('title').innerHTML = "O sorteio será realizado em " + cronometro + " segundos!";
+
+        if(cronometro == 0){
+            clearInterval(cronometroId);
+            var sorte = ["Sorte!", "Azar!"];
+            var sorte_azar = sorte[Math.floor(Math.random() * sorte.length)];
+            document.getElementById("title").innerHTML = sorte_azar;
+
+            var curiosidade = curio[Math.floor(Math.random() * curio.length)];
+            document.getElementById("curiosidade").innerHTML = curiosidade;
+
+            var csorte = [1, 2, 3]; 
+
+            if (sorte_azar == "Sorte!") {
+                var casa = csorte[Math.floor(Math.random() * csorte.length)];
+                document.getElementById("casas").innerHTML = "Avance " + casa + " casas.";
+            } else {
+                var casa = csorte[Math.floor(Math.random() * csorte.length)];
+                document.getElementById("casas").innerHTML = "Retroceda " + casa + " casas.";
+            }
+        }
+    }, 1000);
+    
+    document.getElementById("fechar").addEventListener("click", function(){
+        window.close();
+    })
+
+</script>
+</html>
